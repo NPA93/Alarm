@@ -32,35 +32,61 @@ function cancel() {
   countMinutes = 0;
 }
 
-function save() {
+function createAlarmsBox(itemId) {
+  const newAlarmId = "alarm_set_" + itemId;
   const newAlarm = document.createElement("div");
+
   document.getElementById("alarms_box").appendChild(newAlarm);
-  newAlarm.id = "alarm_set";
-  document.getElementById("alarm_set").classList.add("alarm-set");
-  document.getElementById("alarm_set").style.display = "flex";
-  document.getElementById("alarm_set").style.justifyContent = "center";
+  newAlarm.id = newAlarmId;
+  document.getElementById(newAlarmId).classList.add("alarm-set");
+  document.getElementById(newAlarmId).style.display = "flex";
+  document.getElementById(newAlarmId).style.justifyContent = "center";
+}
+
+function createHoursItem(itemId) {
+  const newAlarmId = "alarm_set_" + itemId;
+  const newAlarmHoursId = "alarm-set-hours_" + itemId;
 
   const newAlarmHours = document.createElement("h2");
-  newAlarm.appendChild(newAlarmHours);
-  newAlarmHours.id = "alarm-set-hours";
-  document.getElementById("alarm-set-hours").classList.add("alarm-set-h2");
-  document.getElementById("alarm-set-hours").textContent = countHours
+  document.getElementById(newAlarmId).appendChild(newAlarmHours);
+  newAlarmHours.id = newAlarmHoursId;
+  document.getElementById(newAlarmHoursId).classList.add("alarm-set-h2");
+  document.getElementById(newAlarmHoursId).textContent = countHours
     .toString()
     .padStart(2, "0");
+}
+
+function createSeparatorItem(itemId) {
+  const newAlarmId = "alarm_set_" + itemId;
+  const newAlarmSeparatorId = "alarm-set-separator_" + itemId;
 
   const newAlarmSeparator = document.createElement("span");
-  newAlarm.appendChild(newAlarmSeparator);
-  newAlarmSeparator.id = "alarm-set-separator";
-  newAlarmSeparator.textContent = ":";
-  document.getElementById("alarm-set-separator").classList.add("alarm-set-h2");
+  document.getElementById(newAlarmId).appendChild(newAlarmSeparator);
+  newAlarmSeparator.id = newAlarmSeparatorId;
+  document.getElementById(newAlarmSeparatorId).textContent = ":";
+  document.getElementById(newAlarmSeparatorId).classList.add("alarm-set-h2");
+}
+
+function createMinutesItem(itemId) {
+  const newAlarmId = "alarm_set_" + itemId;
+  const newAlarmMinutesId = "alarm-set-minutes_" + itemId;
 
   const newAlarmMinutes = document.createElement("h2");
-  newAlarm.appendChild(newAlarmMinutes);
-  newAlarmMinutes.id = "alarm-set-minutes";
-  document.getElementById("alarm-set-minutes").textContent = countMinutes
+  document.getElementById(newAlarmId).appendChild(newAlarmMinutes);
+  newAlarmMinutes.id = newAlarmMinutesId;
+  document.getElementById(newAlarmMinutesId).textContent = countMinutes
     .toString()
     .padStart(2, "0");
-  document.getElementById("alarm-set-minutes").classList.add("alarm-set-h2");
+  document.getElementById(newAlarmMinutesId).classList.add("alarm-set-h2");
+}
+
+function save() {
+  const totalAlarms = document.getElementsByClassName("alarm-set").length;
+
+  createAlarmsBox(totalAlarms);
+  createHoursItem(totalAlarms);
+  createSeparatorItem(totalAlarms);
+  createMinutesItem(totalAlarms);
 
   document.getElementById("alarm-set-hours").textContent = hours.value; //Esta linea de codigo hace que se guarde el valor ingresado mediante el teclado al input.
   document.getElementById("alarm-set-minutes").textContent = minutes.value;

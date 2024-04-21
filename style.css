@@ -126,6 +126,13 @@ button {
   margin-top: 90px;
 }
 
+.alarms-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .alarm-set {
   margin-top: 16px;
   width: 300px;

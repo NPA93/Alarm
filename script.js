@@ -48,8 +48,8 @@ function createHoursItem(itemId) {
   const newAlarmHoursId = "alarm-set-hours_" + itemId;
 
   const newAlarmHours = document.createElement("h2");
-  document.getElementById(newAlarmId).appendChild(newAlarmHours);
   newAlarmHours.id = newAlarmHoursId;
+  document.getElementById(newAlarmId).appendChild(newAlarmHours);
   document.getElementById(newAlarmHoursId).classList.add("alarm-set-h2");
   document.getElementById(newAlarmHoursId).textContent = countHours
     .toString()
@@ -61,8 +61,8 @@ function createSeparatorItem(itemId) {
   const newAlarmSeparatorId = "alarm-set-separator_" + itemId;
 
   const newAlarmSeparator = document.createElement("span");
-  document.getElementById(newAlarmId).appendChild(newAlarmSeparator);
   newAlarmSeparator.id = newAlarmSeparatorId;
+  document.getElementById(newAlarmId).appendChild(newAlarmSeparator);
   document.getElementById(newAlarmSeparatorId).textContent = ":";
   document.getElementById(newAlarmSeparatorId).classList.add("alarm-set-h2");
 }
@@ -72,8 +72,8 @@ function createMinutesItem(itemId) {
   const newAlarmMinutesId = "alarm-set-minutes_" + itemId;
 
   const newAlarmMinutes = document.createElement("h2");
-  document.getElementById(newAlarmId).appendChild(newAlarmMinutes);
   newAlarmMinutes.id = newAlarmMinutesId;
+  document.getElementById(newAlarmId).appendChild(newAlarmMinutes);
   document.getElementById(newAlarmMinutesId).textContent = countMinutes
     .toString()
     .padStart(2, "0");
